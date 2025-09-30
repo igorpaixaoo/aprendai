@@ -1,5 +1,4 @@
 dotenv
 streamlit
-googlegenerativeai
-google.generativeai
 google-generativeai
+
