@@ -1,6 +1,7 @@
 # Importa a biblioteca Streamlit, usada para criar a interface web.
 import random
 import streamlit as st
+import streamlit.components.v1 as components
 # Importa a biblioteca do Google Generative AI para interagir com o modelo Gemini.
 import google.generativeai as genai
 # Importa a biblioteca os para interagir com o sistema operacional (usada aqui para ler variáveis de ambiente).
@@ -36,8 +37,9 @@ Siga estritamente as seguintes regras:
 
 # Inicializa o modelo generativo do Gemini, especificando o modelo a ser usado ('gemini-1.5-pro-latest').
 # Passa a instrução de sistema para definir o comportamento do modelo.
+# MUDAR VERSÃO
 model = genai.GenerativeModel(
-    model_name="gemini-2.5-pro",
+    model_name="gemini-2.5-fast",
     system_instruction=system_instruction
 )
 
@@ -91,3 +93,24 @@ if prompt := st.chat_input(listTextsPlaceholderInputPrompt[indexTexts]):
     with st.chat_message("model", avatar="🤖"):
         # Mostra o texto da resposta recebida do Gemini.
         st.markdown(response.text)
+
+#codigo html
+components.html(
+    """
+        
+    """,
+    height=300
+)
+
+#código css
+st.markdown(
+    """
+        <style>
+            *{
+                
+            }
+        </style>
+
+    """,
+    unsafe_allow_html=True
+)
