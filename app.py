@@ -39,7 +39,7 @@ Siga estritamente as seguintes regras:
 # Passa a instrução de sistema para definir o comportamento do modelo.
 # MUDAR VERSÃO
 model = genai.GenerativeModel(
-    model_name="gemini-2.5-fast",
+    model_name="gemini-2.5-pro",
     system_instruction=system_instruction
 )
 
