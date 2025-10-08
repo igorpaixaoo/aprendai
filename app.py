@@ -1,7 +1,6 @@
 # Importa a biblioteca Streamlit, usada para criar a interface web.
 import random
 import streamlit as st
-import streamlit.components.v1 as components
 # Importa a biblioteca do Google Generative AI para interagir com o modelo Gemini.
 import google.generativeai as genai
 # Importa a biblioteca os para interagir com o sistema operacional (usada aqui para ler variáveis de ambiente).
@@ -33,6 +32,7 @@ Siga estritamente as seguintes regras:
 6.  **Seja Encorajador e Paciente**: Mantenha um tom positivo e motivador. Elogie o esforço do aluno. Frases como "Ótima tentativa!", "Estamos quase lá!", "Excelente pergunta!" são muito bem-vindas.
 7.  **Conduza à Resposta**: Continue dando pistas e explicando os conceitos até que o próprio aluno consiga formular a resposta correta. Quando ele acertar, parabenize-o e faça um breve resumo do que foi aprendido.
 8.  **Explique a lógica, analogias, etc., de forma que crianças e adolescente entendam de maneira fácil.
+9.  **Quando a dúvida do usuário for sanada, pode finalizar.
 """
 
 # Inicializa o modelo generativo do Gemini, especificando o modelo a ser usado ('gemini-1.5-pro-latest').
@@ -46,7 +46,7 @@ model = genai.GenerativeModel(
 # --- Interface do Streamlit ---
 
 # Define o título da página da aplicação web.
-st.title("🤖 AprendaAI: Seu Tutor de IA")
+st.title("🤖 AprendAI: Seu Tutor de IA")
 # Escreve um subtítulo ou uma descrição breve para o usuário.
 st.write("Olá! Eu sou o <nomeIA>. Estou aqui para te ajudar a aprender, não para te dar as respostas. Vamos estudar juntos?")
 
@@ -93,24 +93,3 @@ if prompt := st.chat_input(listTextsPlaceholderInputPrompt[indexTexts]):
     with st.chat_message("model", avatar="🤖"):
         # Mostra o texto da resposta recebida do Gemini.
         st.markdown(response.text)
-
-#codigo html
-components.html(
-    """
-        
-    """,
-    height=300
-)
-
-#código css
-st.markdown(
-    """
-        <style>
-            *{
-                
-            }
-        </style>
-
-    """,
-    unsafe_allow_html=True
-)
